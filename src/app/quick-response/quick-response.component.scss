@@ -1,0 +1,41 @@
+.container {
+  padding: 0 10px;
+}
+
+.grey {
+  padding: 15px;
+  background-color: #ddd;
+  border-radius: 5px;
+  border: 1px solid #bbb;
+}
+
+.quote {
+  background-color: #6de081;
+}
+
+.quote.mat-button-toggle-checked {
+  background-color: darken(#6de081, 25%);
+  color: #fff;
+}
+
+.declination {
+  background-color: #ff665d;
+}
+
+.declination.mat-button-toggle-checked {
+  background-color: darken(#ff665d, 25%);
+  color: #fff;
+}
+
+.update {
+  background-color: #ffb81c;
+}
+
+.update.mat-button-toggle-checked {
+  background-color: darken(#ffb81c, 25%);
+  color: #fff;
+}
+
+mat-button-toggle {
+  width: 1750px;
+}
