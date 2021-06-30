@@ -4,7 +4,12 @@
   fxLayoutAlign="space-around center"
   [formGroup]="responseForm"
 >
-  <h1>Quick Response</h1>
+  <div class="full-width" fxLayout="row" fxLayoutAlign="space-between center">
+    <h1 fxFlex>Quick Response</h1>
+    <button (click)="closeQuickResponse()" mat-icon-button>
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
 
   <mat-form-field class="full-width" fx>
     <mat-select formControlName="marketId" placeholder="Market">
