@@ -40,6 +40,30 @@
       />
     </mat-form-field>
   </div>
+
+  <mat-button-toggle-group class="full-width" formControlName="responseTypeId">
+    <mat-button-toggle [value]="1" class="quote">Indication</mat-button-toggle>
+    <mat-button-toggle [value]="1" class="quote">Quote</mat-button-toggle>
+    <mat-button-toggle [value]="2" class="declination"
+      >Declined</mat-button-toggle
+    >
+    <mat-button-toggle [value]="3" class="update"
+      >Pending Action</mat-button-toggle
+    >
+  </mat-button-toggle-group>
+
+  <mat-form-field class="full-width" fxFlex="100">
+    <input matInput placeholder="Quote Name" formControlName="quoteName" />
+  </mat-form-field>
+
+  <button
+    mat-flat-button
+    color="primary"
+    (click)="addResponse"
+    [disabled]="!responseForm.valid"
+  >
+    Add Response
+  </button>
 </div>
 
 <pre>{{responseForm.value | json}}</pre>
