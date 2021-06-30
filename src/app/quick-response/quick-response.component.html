@@ -1,17 +1,45 @@
 <div
   class="container"
+  fxLayout="column"
   fxLayoutAlign="space-around center"
   [formGroup]="responseForm"
 >
   <h1>Quick Response</h1>
 
-  <mat-form-field class="full-width">
-    <mat-select formControlName="marketId">
+  <mat-form-field class="full-width" fx>
+    <mat-select formControlName="marketId" placeholder="Market">
       <mat-option *ngFor="let market of availableMarkets;" [value]="market.id">
         {{ market.name }}
       </mat-option>
     </mat-select>
   </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-select formControlName="productId" placeholder="Line of Business">
+      <mat-option *ngFor="let product of products;" [value]="product.id">
+        {{ product.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div class="full-width grey" fxLayout="row" fxLayoutGap="20px">
+    <mat-form-field class="full-width" fxFlex="48%">
+      <input
+        matInput
+        placeholder="Underwriter"
+        formControlName="underwriterName"
+      />
+    </mat-form-field>
+
+    <mat-form-field class="full-width" fxFlex="48%">
+      <input
+        type="email"
+        matInput
+        placeholder="Underwriter Email"
+        formControlName="underwriterEmail"
+      />
+    </mat-form-field>
+  </div>
 </div>
 
 <pre>{{responseForm.value | json}}</pre>
