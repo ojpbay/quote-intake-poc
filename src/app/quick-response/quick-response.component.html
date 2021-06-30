@@ -1,4 +1,17 @@
-<mat-drawer-container>
-  <mat-drawer mode="side" opened>Drawer content</mat-drawer>
-  <mat-drawer-content>Main content</mat-drawer-content>
-</mat-drawer-container>
+<div
+  class="container"
+  fxLayoutAlign="space-around center"
+  [formGroup]="responseForm"
+>
+  <h1>Quick Response</h1>
+
+  <mat-form-field class="full-width">
+    <mat-select formControlName="marketId">
+      <mat-option *ngFor="let market of availableMarkets;" [value]="market.id">
+        {{ market.name }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+
+<pre>{{responseForm.value | json}}</pre>
