@@ -2,7 +2,14 @@
   <mat-toolbar-row>
     <span>Responses</span>
     <span class="example-spacer"></span>
-    <mat-slider fxHide.lt-md min="3" max="6" step="1" value="4" [(ngModel)]="gridColumns"></mat-slider>
+    <mat-slider
+      fxHide.lt-md
+      min="3"
+      max="6"
+      step="1"
+      value="4"
+      [(ngModel)]="gridColumns"
+    ></mat-slider>
 
     <span fxHide.lt-md>{{gridColumns}} Columns</span>
 
@@ -14,7 +21,10 @@
     <mat-form-field>
       <mat-select formControlName="responseTypeId" placeholder="Response Type">
         <mat-option [value]="-1">All</mat-option>
-        <mat-option *ngFor="let responseType of responseTypes" [value]="responseType.id">
+        <mat-option
+          *ngFor="let responseType of responseTypes"
+          [value]="responseType.id"
+        >
           {{responseType.name}}
         </mat-option>
       </mat-select>
@@ -29,27 +39,40 @@
       </mat-select>
     </mat-form-field>
 
-    <button mat-icon-button (click)="resetFilters()">
+    <button mat-icon-button (click)="resetFilters()" matTooltip="Reset filters">
       <mat-icon>restart_alt</mat-icon>
     </button>
 
-    <button mat-flat-button color="Accent" (click)="quickQuoteDrawer.toggle()">Add Response</button>
+    <button mat-flat-button color="Accent" (click)="quickQuoteDrawer.toggle()">
+      Add Response
+    </button>
   </mat-toolbar-row>
 </mat-toolbar>
 <mat-drawer-container class="content">
   <mat-drawer-content fxLayout="row wrap" fxLayoutGap="16px grid">
-    <div [fxFlex]="flexPercentage" fxFlex.xs="100%" fxFlex.sm="33%" *ngFor="let response of filteredResponses">
-      <app-response-card [response]="response" (deleteResponseEvent)="deleteResponse($event)"
-        (editResponseEvent)="editResponse($event)"></app-response-card>
+    <div
+      [fxFlex]="flexPercentage"
+      fxFlex.xs="100%"
+      fxFlex.sm="33%"
+      *ngFor="let response of filteredResponses"
+    >
+      <app-response-card
+        [response]="response"
+        (deleteResponseEvent)="deleteResponse($event)"
+        (editResponseEvent)="editResponse($event)"
+      ></app-response-card>
     </div>
   </mat-drawer-content>
 
   <mat-drawer #quickQuoteDrawer mode="side" position="end">
-    <app-quick-response #quickResponse (closeQuickResponseDrawerEvent)="closeQuickResponseDrawer($event)"
-      (addResponseEvent)="addResponse($event)" [response]="selectedResponse"></app-quick-response>
+    <app-quick-response
+      #quickResponse
+      (closeQuickResponseDrawerEvent)="closeQuickResponseDrawer($event)"
+      (addResponseEvent)="addResponse($event)"
+      [response]="selectedResponse"
+    ></app-quick-response>
   </mat-drawer>
 </mat-drawer-container>
-
 
 <!-- <pre>{{uniqueMarkets | json}}</pre> -->
 <!-- <pre>{{filterForm.value | json}}</pre> -->

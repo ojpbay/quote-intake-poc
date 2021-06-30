@@ -18,6 +18,7 @@ import { ResponseCardComponent } from './response-card/response-card.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [AppComponent, QuickResponseComponent, ResponseCardComponent],
@@ -37,6 +38,7 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
     MatInputModule,
     MatButtonModule,
     MatButtonToggleModule,
+    MatTooltipModule,
     FormsModule,
     ReactiveFormsModule
   ],
