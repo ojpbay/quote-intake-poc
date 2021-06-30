@@ -1,9 +1,9 @@
 <mat-card
-  [ngClass]="{'quote': response.responseTypeId === 1, 'declination': response.responseTypeId === 2, 'update': response.responseTypeId === 3 }"
->
+  [ngClass]="{'quote': response.responseTypeId === 1 || response.responseTypeId === 5, 'declination': response.responseTypeId === 2, 'update': response.responseTypeId === 3 }">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image">
       <mat-icon *ngIf="response.responseTypeId === 1">thumb_up</mat-icon>
+      <mat-icon *ngIf="response.responseTypeId === 5">thumb_up</mat-icon>
       <mat-icon *ngIf="response.responseTypeId === 2">thumb_down</mat-icon>
       <mat-icon *ngIf="response.responseTypeId === 3">update</mat-icon>
     </div>

@@ -14,6 +14,7 @@ export class AppComponent implements OnInit {
   filterForm: FormGroup;
   uniqueMarkets: any[];
   selectedResponse: any;
+
   responseTypes: any[] = [
     { id: 1, name: 'Quote' },
     { id: 2, name: 'Declination' },
@@ -45,7 +46,7 @@ export class AppComponent implements OnInit {
     },
     {
       id: 3,
-      responseTypeId: 1,
+      responseTypeId: 5,
       marketId: 2,
       marketName: 'Market #2',
       underwriterName: 'Fred Allen',
@@ -166,6 +167,8 @@ export class AppComponent implements OnInit {
     if (response) {
       this.selectedResponse = response;
     }
+
+    this.quickQuoteDrawer.open();
   }
 
   deleteResponse(id: number) {
