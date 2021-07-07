@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MatDrawer } from '@angular/material/sidenav';
-import { take, takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -160,6 +159,12 @@ export class AppComponent implements OnInit {
 
   addResponse(response: any) {
     this.responses.push(response);
+  }
+
+  saveResponse(response: any) {
+    const index = this.responses.findIndex(x => x.id === response.id);
+    this.responses.splice(index, 1, response);
+    this.quickQuoteDrawer.close();
   }
 
   editResponse(responseId: number) {

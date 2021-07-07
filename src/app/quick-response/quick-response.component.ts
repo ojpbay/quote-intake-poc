@@ -77,6 +77,7 @@ export class QuickResponseComponent implements OnInit {
   responseForm: FormGroup;
   @Output() closeQuickResponseDrawerEvent = new EventEmitter<boolean>();
   @Output() addResponseEvent = new EventEmitter<any>();
+  @Output() saveResponseEvent = new EventEmitter<any>();
 
   constructor(private readonly formBuilder: FormBuilder) {}
 
@@ -90,6 +91,7 @@ export class QuickResponseComponent implements OnInit {
 
   buildForm() {
     this.responseForm = this.formBuilder.group({
+      id: [this.response?.id ?? -1],
       marketId: [
         this.response ? this.response.marketId : null,
         Validators.required
@@ -134,6 +136,23 @@ export class QuickResponseComponent implements OnInit {
     }
 
     this.addResponseEvent.emit(response);
+  }
+
+  saveResponse() {    
+    const id = this.responseForm.controls['id'].value;
+
+    const market = this.getMarketName(
+      this.responseForm.controls['marketId'].value
+    );
+    let response = this.responseForm.value;
+    if (market) {
+      response = {
+        ...response,
+        marketName: market.name
+      };
+    }
+
+    this.saveResponseEvent.emit(response);
   }
 
   private getMarketName(marketId: number) {

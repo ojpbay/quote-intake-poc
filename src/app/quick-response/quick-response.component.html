@@ -1,9 +1,4 @@
-<div
-  class="container"
-  fxLayout="column"
-  fxLayoutAlign="space-around center"
-  [formGroup]="responseForm"
->
+<div class="container" fxLayout="column" fxLayoutAlign="space-around center" [formGroup]="responseForm">
   <div class="full-width" fxLayout="row" fxLayoutAlign="space-between center">
     <h1 fxFlex>Quick Response</h1>
     <button (click)="closeQuickResponse()" mat-icon-button>
@@ -49,12 +44,8 @@
   <mat-button-toggle-group class="full-width" formControlName="responseTypeId">
     <mat-button-toggle [value]="5" class="quote">Indication</mat-button-toggle>
     <mat-button-toggle [value]="1" class="quote">Quote</mat-button-toggle>
-    <mat-button-toggle [value]="2" class="declination"
-      >Declined</mat-button-toggle
-    >
-    <mat-button-toggle [value]="3" class="update"
-      >Pending Action</mat-button-toggle
-    >
+    <mat-button-toggle [value]="2" class="declination">Declined</mat-button-toggle>
+    <mat-button-toggle [value]="3" class="update">Pending Action</mat-button-toggle>
   </mat-button-toggle-group>
 
   <div class="full-width grey" fxLayout="column">
@@ -91,15 +82,28 @@
     </mat-form-field>
   </div>
 
-  <button
-    mat-flat-button
-    color="primary"
-    class="full-width"
-    (click)="addResponse()"
-    [disabled]="!responseForm.valid"
-  >
-    Add Response
-  </button>
+
+  <div fxLayout="row" fxLayoutAlign="space-between center" style="width:100%;">
+    <button fxFlex="25"
+            mat-flat-button
+            color="primary"
+            (click)="saveResponse()"
+            class="full-width"
+            [disabled]="!responseForm.valid"
+    >
+      Save
+    </button>
+
+    <button fxFlex="70"
+            mat-flat-button
+            color="primary"
+            (click)="addResponse()"
+            class="full-width"
+            [disabled]="!responseForm.valid"
+    >
+      Add Response
+    </button>
+  </div>
 </div>
 
-<!-- <pre>{{responseForm.value | json}}</pre> -->
+<pre>{{responseForm.value | json}}</pre>

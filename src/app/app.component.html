@@ -49,7 +49,7 @@
 
   <mat-drawer #quickQuoteDrawer mode="side" position="end">
     <app-quick-response #quickResponse (closeQuickResponseDrawerEvent)="closeQuickResponseDrawer($event)"
-      (addResponseEvent)="addResponse($event)" [response]="selectedResponse"></app-quick-response>
+      (addResponseEvent)="addResponse($event)" (saveResponseEvent)="saveResponse($event)" [response]="selectedResponse"></app-quick-response>
   </mat-drawer>
 </mat-drawer-container>
 
